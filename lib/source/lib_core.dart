@@ -53,13 +53,15 @@ class FlutterBleLib {
   }
 
 
-  Future<Null> setLogLevel(LogLevel logLevel) =>
-      _mainMethodChannel.invokeMethod(
-          _setLogLevel,
-          LogLevelConverter
-              .toMessage(logLevel)
-              .name
-      );
+  Future<Null> setLogLevel(LogLevel logLevel) async {
+    _mainMethodChannel.invokeMethod(
+        _setLogLevel,
+        LogLevelConverter
+            .toMessage(logLevel)
+            .name
+    );
+    return;
+  }
 
   Future<LogLevel> logLevel() =>
       _mainMethodChannel.invokeMethod(_logLevel)
