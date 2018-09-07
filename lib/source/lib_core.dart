@@ -116,7 +116,7 @@ class FlutterBleLib {
   }
 
   Future<Null> stopDeviceScan() async {
-    await _mainMethodChannel.invokeMethod(_stopDeviceScan);
+    _mainMethodChannel.invokeMethod(_stopDeviceScan);
     return;
   }
 
