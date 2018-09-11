@@ -239,7 +239,7 @@ class FlutterBleLib {
         _deviceId: deviceId,
         _serviceUUID: serviceUUID,
         _characteristicUUID: characteristicUUID,
-        _valueBase64: BASE64.encode(bytes),
+        _valueBase64: base64.encode(bytes),
         _response: response,
         _transactionId: transactionId,
       });
@@ -254,7 +254,7 @@ class FlutterBleLib {
           _writeCharacteristicForService, <String, Object>{
         _serviceIdentifier: serviceIdentifier,
         _characteristicUUID: characteristicUUID,
-        _valueBase64: BASE64.encode(bytes),
+        _valueBase64: base64.encode(bytes),
         _response: response,
         _transactionId: transactionId,
       });
@@ -267,7 +267,7 @@ class FlutterBleLib {
       await _invokeMethodWriteCharacteristic(
           _writeCharacteristic, <String, Object>{
         _characteristicIdentifier: characteristicIdentifier,
-        _valueBase64: BASE64.encode(bytes),
+        _valueBase64: base64.encode(bytes),
         _response: response,
         _transactionId: transactionId,
   });
