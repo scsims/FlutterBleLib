@@ -869,9 +869,11 @@ public class BleHelper {
                 .flatMap(new Func1<RxBleConnection, Observable<Observable<byte[]>>>() {
                     @Override
                     public Observable<Observable<byte[]>> call(RxBleConnection connection) {
-                        if (notifications || indications) {
+                        if (notifications) {
                             // NotificationSetupMode.COMPAT does not write CCC Descriptor on it's own
                             return connection.setupNotification(gattCharacteristic, NotificationSetupMode.COMPAT);
+                        } else if (indications) {
+                            return connection.setupIndication(gattCharacteristic, NotificationSetupMode.COMPAT);
                         }
 
                         return Observable.error(new CannotMonitorCharacteristicException(gattCharacteristic));
